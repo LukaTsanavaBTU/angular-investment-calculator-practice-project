@@ -7,6 +7,7 @@ export class InvestmentResultsService {
     private annualData : AnnualData[] = [];
 
     calculateInvestmentResults({initialInvestment, annualInvestment, expectedReturn, duration} : InvestmentInput) {
+        this.annualData = [];
         let investmentValue = initialInvestment;
 
         for (let i = 0; i < duration; i++) {

@@ -1,1 +1,24 @@
-<p>investment-results works!</p>
+@if (investmentResultsService.getInvestmentResults().length > 0) {
+    <table>
+        <thead>
+            <tr>
+                <th>Year</th>
+                <th>Investment Value</th>
+                <th>Interest (Year)</th>
+                <th>Total Interest</th>
+                <th>Invested Capital</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (row of investmentResultsService.getInvestmentResults(); track row.year) {
+                <tr>
+                    <td>{{ row.year }}</td>
+                    <td>{{ row.valueEndOfYear | currency }}</td>
+                    <td>{{ row.interest | currency }}</td>
+                    <td>{{ row.totalInterest | currency }}</td>
+                    <td>{{ row.annualInvestment | currency }}</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
